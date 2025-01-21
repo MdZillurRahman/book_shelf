@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center gap-3 text-dark">
+      <div class="icon-size">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px;">
+          <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+        </svg>
+      </div>
+      <%= link_to "Bookshelf", root_path, class: "navbar-brand" %>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to "Explore", explore_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-primary text-white fw-bold btn-sm px-3">
+            Log in
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-light text-dark fw-bold btn-sm px-3">
+            Sign up
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
