@@ -1,0 +1,23 @@
+<div class="d-flex flex-column justify-content-center my-5">
+  <h1 class="mx-auto">Sign In</h1>
+
+  <%= form_with class: "d-flex flex-column align-items-center", url: sign_in_path do |form| %>
+    <div class="mb-3 w-50">
+      <%= form.label :email, class: "form-label d-block" %>
+      <%= form.text_field :email, placeholder: "john@example.com", class: "w-100" %>
+    </div>
+    <div class="mb-3 w-50">
+      <%= form.label :password, class: "form-label d-block" %>
+      <%= form.password_field :password, placeholder: "password", class: "w-100" %>
+      <%
+=begin%>
+ <%= link_to "Forget your password?", password_reset_path, class: "d-block my-2 text-end" %> 
+<%
+=end%>
+    </div>
+    <div class="mb-3 w-25">
+    <%= form.submit "Sign In", class: "btn btn-primary w-100"%>
+    </div>
+  <% end %>
+  <p class="mx-auto my-2">Don't have an account? <%= link_to "Sign Up", sign_up_path %></p>
+</div>

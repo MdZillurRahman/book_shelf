@@ -4,5 +4,16 @@ Rails.application.routes.draw do
   # get "/", to: "main#index"
   root to: "main#index"
 
+  # account sign_up
+  get "sign_up", to: "registrations#new"
+  post "sign_up", to: "registrations#create"
+
+  # account sign_in
+  get "sign_in", to: "sessions#new"
+  post "sign_in", to: "sessions#create"
+
+  # account sign_out
+  delete "logout", to: "sessions#destroy"
+
   get "explore", to: "explore#index", as: :explore
 end

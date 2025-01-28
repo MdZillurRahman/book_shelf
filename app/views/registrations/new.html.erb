@@ -1,0 +1,31 @@
+<div class="d-flex flex-column justify-content-center my-5">
+  <h1 class="mx-auto">Sign Up</h1>
+
+  <%= form_with model: @user, class: "d-flex flex-column align-items-center", url: sign_up_path do |form| %>
+    <% if form.object.errors.any? %>
+      <div class="alert alert-danger">
+        <% form.object.errors.full_messages.each do |message| %>
+          <div>
+            <%= message %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="mb-3 w-50">
+      <%= form.label :email, class: "form-label d-block" %>
+      <%= form.text_field :email, placeholder: "john@example.com", class: "w-100" %>
+    </div>
+    <div class="mb-3 w-50">
+      <%= form.label :password, class: "form-label d-block" %>
+      <%= form.password_field :password, placeholder: "password", class: "w-100" %>
+    </div>
+    <div class="mb-3 w-50">
+      <%= form.label :password_confirmation, class: "form-label d-block" %>
+      <%= form.password_field :password_confirmation, placeholder: "confirm password", class: "w-100" %>
+    </div>
+    <div class="mb-3 w-25">
+      <%= form.submit "Sign Up", class: "btn btn-primary w-100"%>
+    </div>
+  <% end %>
+  <p class="mx-auto my-2">Already have an account? <%= link_to "Login", sign_in_path %></p>
+</div>
