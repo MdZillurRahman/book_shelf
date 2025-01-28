@@ -1,0 +1,7 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h1>My Books</h1>
+  <%= link_to 'Add New Book', new_book_path, class: "btn btn-primary" %>
+</div>
+
+<!-- Render the partial for user's books -->
+<%= render partial: "book_list", locals: { books: @books, user: @current_user } %>

@@ -1,0 +1,16 @@
+<!-- _book_list.html.erb -->
+<ul>
+  <% if books.any? %>
+    <% books.each do |book| %>
+      <% if user.nil? || book.user == user %>
+        <li class="my-2">
+          <%= image_tag book.image, width: 50 if book.image.attached? %>
+          <%= link_to book.title, book_path(book) %> by <%= book.author %>
+          <%= "(#{book.status.humanize})" if book.status && book.user == user %>
+        </li>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>No books available.</p>
+  <% end %>
+</ul>

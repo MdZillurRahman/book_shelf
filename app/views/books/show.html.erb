@@ -1,0 +1,18 @@
+<h1><%= @book.title %></h1>
+<p><strong>Author:</strong> <%= @book.author %></p>
+<p><strong>Genre:</strong> <%= @book.genre %></p>
+<p><%= @book.description %></p>
+<p><strong>Status:</strong> <%= @book.status.humanize %></p>
+
+<% if @book.image.attached? %>
+  <p><strong>Book Cover:</strong></p>
+  <%= image_tag @book.image, width: 200 %>
+<% end %>
+
+<% if user_signed_in? && @book.user == @current_user %>
+  <div class="d-flex align-items-center gap-3 mt-4">
+    <%= link_to 'Edit', edit_book_path(@book), class: "d-inline btn btn-primary" %>
+    <%= link_to 'Back to Books', books_path, class: "d-inline btn btn-secondary" %>
+    <%= button_to "Delete", book_path(@book), method: :delete, class: "d-inline btn btn-danger" %>
+  </div>
+<% end %>

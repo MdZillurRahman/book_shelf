@@ -17,7 +17,13 @@
         <li class="nav-item">
           <%= link_to "Explore", explore_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "All Books", all_books_path, class: "nav-link" %>
+        </li>
         <% if Current.user %>
+          <li class="nav-item">
+            <%= link_to "My Books", books_path, class: "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <%= Current.user.email%>

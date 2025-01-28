@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'books/index'
+  get 'books/show'
+  get 'books/new'
+  get 'books/create'
+  get 'books/edit'
+  get 'books/update'
+  get 'books/destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # get "/", to: "main#index"
@@ -14,6 +21,9 @@ Rails.application.routes.draw do
 
   # account sign_out
   delete "logout", to: "sessions#destroy"
+
+  get 'books/all', to: 'books#index_all', as: 'all_books'
+  resources :books
 
   get "explore", to: "explore#index", as: :explore
 end

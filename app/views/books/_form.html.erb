@@ -1,0 +1,51 @@
+<%= form_with model: @book, class: "d-flex flex-column align-items-center justify-content-center", local: true do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+      <ul>
+        <% book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p class="w-50">
+    <%= form.label :title %><br>
+    <%= form.text_field :title, class: "w-100" %>
+  </p>
+
+  <p class="w-50">
+    <%= form.label :author %><br>
+    <%= form.text_field :author, class: "w-100" %>
+  </p>
+
+  <p class="w-50">
+    <%= form.label :genre %><br>
+    <%= form.text_field :genre, class: "w-100" %>
+  </p>
+
+  <p class="w-50">
+    <%= form.label :description %><br>
+    <%= form.text_area :description, class: "w-100" %>
+  </p>
+
+  <p class="w-50">
+    <%= form.label :status %><br>
+    <%= form.select :status, Book.statuses.keys.map { |s| [s.humanize, s] } %>
+  </p>
+
+  <p class="w-50">
+    <%= form.label :image %><br>
+    <%= form.file_field :image, class: "w-100" %>
+  </p>
+
+  <p class="w-50">
+    <%= form.check_box :published %>
+    <%= form.label :published, "Check this box to publish the book" %>
+  </p>
+
+  <p class="w-25">
+    <%= form.submit "ADD", class: "btn btn-primary w-100" %>
+  </p>
+<% end %>
+
